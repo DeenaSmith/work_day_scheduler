@@ -10,3 +10,11 @@ var twoDigitMonth = ((fullDate.getMonth().length+1) === 1)? (fullDate.getMonth()
 var currentDate = fullDate.getDate() + "/" + twoDigitMonth + "/" + fullDate.getFullYear();
 
 $('#currentDay').text(fullDate);
+
+
+
+// Save Buttons
+
+$('#nineAmSave').click(function(){
+    console.log($('#nineAmInput').val())
+})
