@@ -16,5 +16,10 @@ $('#currentDay').text(fullDate);
 // Save Buttons
 
 $('#nineAmSave').click(function(){
-    console.log($('#nineAmInput').val())
+    var enterTask = $('#input9');
+    var storedTask = enterTask.val();
+
+    window.localStorage.setItem("tasks", storedTask)
+    console.log($('#input9').val())
+    console.log($('#input9').data())
 })
