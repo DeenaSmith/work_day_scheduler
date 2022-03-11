@@ -12,6 +12,8 @@ var currentDate = fullDate.getDate() + "/" + twoDigitMonth + "/" + fullDate.getF
 $('#currentDay').text(fullDate);
 
 
+
+
 // Checks local storage to display
 function loadTasks() {
     var savedTasks9am = localStorage.getItem("tasks9am");
@@ -21,10 +23,19 @@ function loadTasks() {
     var savedTasks1pm = localStorage.getItem("tasks1pm");
     var savedTasks2pm = localStorage.getItem("tasks2pm");
     var savedTasks3pm = localStorage.getItem("tasks3pm");
-    var savedTasks4m = localStorage.getItem("tasks4pm");
-    var savedTasks5m = localStorage.getItem("tasks5pm");
-    console.log(savedTasks9am)
-    console.log(savedTasks10am)
+    var savedTasks4pm = localStorage.getItem("tasks4pm");
+    var savedTasks5pm = localStorage.getItem("tasks5pm");
+    
+  
+    $('#input9').attr('value', savedTasks9am);
+    $('#input10').attr('value', savedTasks10am);
+    $('#input11').attr('value', savedTasks11am);
+    $('#input12').attr('value', savedTasks12pm);
+    $('#input1').attr('value', savedTasks1pm);
+    $('#input2').attr('value', savedTasks2pm);
+    $('#input3').attr('value', savedTasks3pm);
+    $('#input4').attr('value', savedTasks4pm);
+    $('#input5').attr('value', savedTasks5pm);
 }
 loadTasks();
 
