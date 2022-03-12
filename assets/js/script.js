@@ -1,16 +1,47 @@
 
-// Shows CURRENT date
-var fullDate = new Date()
-console.log(fullDate);
+// // Shows CURRENT date
+// var fullDate = new Date()
+// console.log(fullDate);
 
- 
-//convert month to 2 digits
-var twoDigitMonth = ((fullDate.getMonth().length+1) === 1)? (fullDate.getMonth()+1) : '0' + (fullDate.getMonth()+1);
- 
-var currentDate = fullDate.getDate() + "/" + twoDigitMonth + "/" + fullDate.getFullYear();
 
-$('#currentDay').text(fullDate);
+// //convert month to 2 digits
+// var twoDigitMonth = ((fullDate.getMonth().length + 1) === 1) ? (fullDate.getMonth() + 1) : '0' + (fullDate.getMonth() + 1);
 
+// var currentDate = fullDate.getDate() + "/" + twoDigitMonth + "/" + fullDate.getFullYear();
+
+// $('#currentDay').text(fullDate);
+
+
+$('#currentDay').text(moment().format("dddd, MMMM Do YYYY, h:mm a"));
+
+
+
+// Color change based on time
+
+function colorChange() {
+    var currentHour = moment().hour();
+    console.log(currentHour)
+    $('.target-hour').each(function () {
+        var eachHour = $(this).attr('id');
+        console.log(eachHour)
+
+        if (eachHour < currentHour ) {
+            $(this).addClass('past');
+        } else if (
+            eachHour == currentHour 
+        ) {
+            $(this).removeClass('past');
+            $(this).addClass('present');
+        } else if (eachHour > currentHour ){
+            $(this).removeClass('past');
+            $(this).removeClass('present');
+            $(this).addClass('future');
+        }
+        
+});
+}
+
+colorChange();
 
 
 
@@ -25,17 +56,17 @@ function loadTasks() {
     var savedTasks3pm = localStorage.getItem("tasks3pm");
     var savedTasks4pm = localStorage.getItem("tasks4pm");
     var savedTasks5pm = localStorage.getItem("tasks5pm");
-    
-  
-    $('#input9').attr('value', savedTasks9am);
-    $('#input10').attr('value', savedTasks10am);
-    $('#input11').attr('value', savedTasks11am);
-    $('#input12').attr('value', savedTasks12pm);
-    $('#input1').attr('value', savedTasks1pm);
-    $('#input2').attr('value', savedTasks2pm);
-    $('#input3').attr('value', savedTasks3pm);
-    $('#input4').attr('value', savedTasks4pm);
-    $('#input5').attr('value', savedTasks5pm);
+
+
+    $('#09').attr('value', savedTasks9am);
+    $('#10').attr('value', savedTasks10am);
+    $('#11').attr('value', savedTasks11am);
+    $('#12').attr('value', savedTasks12pm);
+    $('#13').attr('value', savedTasks1pm);
+    $('#14').attr('value', savedTasks2pm);
+    $('#15').attr('value', savedTasks3pm);
+    $('#16').attr('value', savedTasks4pm);
+    $('#17').attr('value', savedTasks5pm);
 }
 loadTasks();
 
@@ -44,90 +75,90 @@ loadTasks();
 
 // Save Buttons
 
-$('#nineAmSave').click(function(){
-    var enterTask = $('#input9');
+$('#nineAmSave').click(function () {
+    var enterTask = $('#09');
     var storedTask = enterTask.val();
 
     window.localStorage.setItem("tasks9am", storedTask)
 
-    });
+});
 
 
 
-$('#tenAmSave').click(function(){
-    var enterTask = $('#input10');
+$('#tenAmSave').click(function () {
+    var enterTask = $('#10');
     var storedTask = enterTask.val();
 
     window.localStorage.setItem("tasks10am", storedTask)
 
-    });
+});
 
 
 
-$('#elevenAmSave').click(function(){
-    var enterTask = $('#input11');
+$('#elevenAmSave').click(function () {
+    var enterTask = $('#11');
     var storedTask = enterTask.val();
 
     window.localStorage.setItem("tasks11am", storedTask)
 
-    });
+});
 
 
 
-$('#twelvePmSave').click(function(){
-    var enterTask = $('#input12');
+$('#twelvePmSave').click(function () {
+    var enterTask = $('#12');
     var storedTask = enterTask.val();
 
-    window.localStorage.setItem("tasks12am", storedTask)
+    window.localStorage.setItem("tasks12pm", storedTask)
 
-    });
+});
 
 
 
-$('#onePmSave').click(function(){
-    var enterTask = $('#input1');
+$('#onePmSave').click(function () {
+    var enterTask = $('#13');
     var storedTask = enterTask.val();
 
     window.localStorage.setItem("tasks1pm", storedTask)
 
-    });
+});
 
 
 
-$('#twoPmSave').click(function(){
-    var enterTask = $('#input2');
+$('#twoPmSave').click(function () {
+    var enterTask = $('#14');
     var storedTask = enterTask.val();
 
     window.localStorage.setItem("tasks2pm", storedTask)
 
-    });
+});
 
 
 
-$('#threePmSave').click(function(){
-    var enterTask = $('#input3');
+$('#threePmSave').click(function () {
+    var enterTask = $('#15');
     var storedTask = enterTask.val();
 
     window.localStorage.setItem("tasks3pm", storedTask)
 
-    });
+});
 
 
 
-$('#fourPmSave').click(function(){
-    var enterTask = $('#input4');
+$('#fourPmSave').click(function () {
+    var enterTask = $('#16');
     var storedTask = enterTask.val();
 
     window.localStorage.setItem("tasks4pm", storedTask)
 
-    });
+});
 
 
 
-$('#tenAmSave').click(function(){
-    var enterTask = $('#input10');
+$('#fivePmSave').click(function () {
+    var enterTask = $('#17');
     var storedTask = enterTask.val();
 
     window.localStorage.setItem("tasks5pm", storedTask)
 
-    });
+});
